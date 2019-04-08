@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链继承实例</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            function Elem(id) {
+                this.elem = document.getElementById(id)
+
+            }
+
+            Elem.prototype.html = function (val) {
+                var elem = this.elem
+                if (val) {
+                    elem.innerHTML = val
+                    console.log("dq211")
+                    return this     //链式操作
+                } else {
+                    elem.innerHTML = '<p>innerHTML was empty</p>'
+                    console.log("dq221")
+                    return this
+                }
+            }
+
+            var div1 = new Elem("id")
+            console.log(div1.html())
+
+            Elem.prototype.on = function (type, fn) {
+                var elem = this.elem
+                elem.addEventListener(type, fn)
+            }
+            
+            div1.on('click', function(){
+                div1.html('<p>hello xwh</p>')
+            })
+            
+        }
+    </script>
+
+
+    <style>
+        #id {
+            width: 200px;
+            height: 200px;
+            background-color: brown
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id">123123</div>
+
+</body>
+
+</html>

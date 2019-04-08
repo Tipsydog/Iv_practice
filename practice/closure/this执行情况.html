@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this执行情况</title>
+    <script>
+        //作为构造函数执行
+        function Foo(name) {
+            //this = {}
+            this.name = name;
+            console.log(this)       //this===Foo {name: "xuweihao"}
+            //return this
+        }
+
+        var foo = new Foo('xuweihao')
+        
+
+        //作为对象属性执行
+        var obj = {
+            name: 'a',
+            printName: function () {
+                console.log(this.name)      //this===a
+            }
+        }
+        obj.printName()
+
+        //作为普通函数执行
+        function fn() {
+            console.log(this)           //this===Window
+        }
+        fn()
+
+        //call apply bind
+        function fn1(name, age){
+            alert(name)
+            console.log(this)       //this==={x: 100}
+        }
+        fn1.call({x:100}, 'xuweihao', 24)   //apply和call一样
+
+        var fn2 = function(name , age){
+            console.log(this)
+        }.bind({y:200})
+        fn2('xu' , 25)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

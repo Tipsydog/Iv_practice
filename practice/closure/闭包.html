@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包</title>
+    <script>
+        function F1() {
+            var a = 100
+            return function f3() {
+                console.log(a)      //自由变量a去其父级作用域中寻找
+            }                       //闭包使用场景1️⃣函数作为返回值
+        }
+        var a = 200
+        var f1 = F1()
+        f1()        //100
+
+        function F2(fn){
+            var a = 300
+            fn()
+        }
+        F2(f1)                      //闭包使用场景2️⃣函数作为参数进行传递
+
+        function foo(){
+            var aa =2;
+
+            function bar(){
+                console.log(aa);
+            }return bar;
+        }
+        var baz = foo()
+        console.log(foo.a)
+        baz()
+        console.log(foo.a)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

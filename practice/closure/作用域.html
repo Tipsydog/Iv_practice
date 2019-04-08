@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作用域</title>
+    <script>
+        //此处表明js没有块级作用域,所以不要在块中声明变量
+        if(true){
+            var name = 'xuweh'
+        }
+        console.log(name)       //xuweh
+        /*推荐写法
+        var name
+        if(true){
+            name = 'xuweh'
+        }
+        console.log(name) 
+        是将变量声明放在块外，提高程序可读性
+        */
+
+
+        function fn (){
+            var name2 = '111'
+        }
+        // console.log(name2)
+
+        //函数和全局作用域
+        var a =100
+        function fn1(){
+            var a = 200;
+            console.log('fn1',a)
+        }
+        fn1()
+        console.log('global' , a)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

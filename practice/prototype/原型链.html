@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+    <script>
+    function Foo(name){
+        this.name=name;
+    }
+    Foo.prototype.alertName = function(){
+        alert(this.name)
+    }
+
+    var f = new Foo('xuweihao');
+    f.printName = function(){
+        console.log(this.name)
+    }
+
+    f.printName();
+    f.alertName();
+    console.log(f.toString());   //此方法要去f.__proto__.__proto__中查找
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

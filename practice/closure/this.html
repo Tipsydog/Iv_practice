@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this指代</title>
+    <script>
+    var a = {
+        name:'A',
+        fn:function(){
+            console.log(this.name)      //this===A
+        }
+    }
+
+    a.fn()      //this===a
+    console.log(this)
+    a.fn.call({name:'B'})       //this==={name:'B'}
+    var fn1 = a.fn
+    fn1()       //this===window
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
