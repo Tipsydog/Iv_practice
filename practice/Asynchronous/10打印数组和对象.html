@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个函数打印数组&对象</title>
+    <script>
+        function foreach(obj, fn) {
+            var key
+            if (obj instanceof Array) {
+                obj.forEach(function (item, index) {
+                    fn(index, item)             // 因为forEach默认是（元素，编号），为了和obj对应在此改变顺序
+                })
+            } else {
+                for (key in obj) {
+                    if (obj.hasOwnProperty(key)) {
+                        fn(key, obj[key])
+                    }
+                }
+            }
+        }
+
+        var arr = [2,4,3,1,5]
+        foreach(arr, function(index, item){
+            console.log(index, item)
+        })
+
+        var obj = {
+            x: 100,
+            y: 200,
+            z: 300
+        }
+        foreach(obj, function (key, val) {
+            console.log(key, val)
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

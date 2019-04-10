@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>同步和异步的区别</title>
+    <script>
+        //同步
+    // console.log(100)
+    // alert(200)          //会阻塞300输出
+    // console.log(300)
+
+        //异步
+    console.log(100)                    //执行第一行打印100
+    setTimeout(function(){              //执行setTimeout后传入setTimeout的函数暂存，不会立即执行
+        console.log(200)                //执行最后一行
+    })                                  //所有程序执行完，浏览器会处于空闲状态，会立马检查有无程序暂存
+    console.log(300)                    //发现暂存的setTimeout程序立即执行
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

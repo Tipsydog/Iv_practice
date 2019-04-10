@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math</title>
+    <script>
+        for (i = 0; i < 10; i++) {
+            console.log(i + 1 + '=' + Math.random())
+            // 最常用的Math方法就是random 通常用于清除缓存
+        }
+
+        // 生成一个三位随机数
+        var y = ""
+        for (i = 0; i < 3; i++){
+            var z
+            z = Math.floor(Math.random()*10)
+            y = y + z.toString()
+        }
+        console.log(y)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

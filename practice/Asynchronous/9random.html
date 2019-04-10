@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>random</title>
+    <script>
+    var random = Math.random()
+    random = random + '0000000000'      // 保证一定有十位可截取
+    console.log(random) 
+    random = random.slice(0, 10)        // 截取前十位
+    console.log(random)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
