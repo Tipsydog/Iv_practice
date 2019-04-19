@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通用事件绑定</title>
+
+</head>
+<body>
+    <div id="div1">
+        <a href="http://imooc.com" id="link1">imooc.com</a>
+        <a href="http://imooc.com" id="link2">imooc.com</a>
+        <a href="http://imooc.com" id="link3">imooc.com</a>
+        <a href="http://imooc.com" id="link4">imooc.com</a>
+        <p id="p1">激活</p>
+        <p id="p2">取消</p>
+    </div>
+    <hr>
+    <div id="div2">
+        <p id="p3">激活</p>
+        <p id="p4">取消</p>
+    </div>
+</body>
+<script type="text/javascript">
+    var div1 = document.getElementById('div1')
+    var p1 = document.getElementById('p1')
+    
+    function bindEvent(elem, type, selector, fn){
+        if(fn == null){
+            fn = selector;
+            selector = null
+        }
+        elem.addEventListener(type, function(e){
+            var target
+            target = e.target
+            if(selector){                       // 使用代理
+                console.log('is selector')
+                if(target.matches(selector)){
+                    
+                    fn.call(target, e)
+                }
+            }else{
+                console.log('not selector')                              // 不使用代理
+                fn.call(target, e)
+            }
+        })
+    }
+
+    bindEvent(div1, 'click', 'a', function(a){
+        a.preventDefault();
+        console.log(this.innerHTML)
+    })
+    bindEvent(p1, 'click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(this.innerHTML)
+    })
+</script>
+</html>

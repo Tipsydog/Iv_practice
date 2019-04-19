@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+
+</head>
+<body>
+    <div id="div1">
+        <a href="http://imooc.com" id="link1">imooc.com</a>
+        <p id="p1">激活</p>
+        <p id="p2">取消</p>
+    </div>
+    <hr>
+    <div id="div2">
+        <p id="p3">激活</p>
+        <p id="p4">取消</p>
+    </div>
+</body>
+<script type="text/javascript">
+    var p1 = document.getElementById('p1')
+    var link1 = document.getElementById('link1')
+    p1.addEventListener('click', function(e){
+        console.log(123)
+    })
+    link1.addEventListener('click', function(e){
+        e.preventDefault();     // 取消默认行为
+        console.log(123)
+    })
+
+    function bindEvent(elem, type, fn){
+        elem.addEventListener(type, fn)
+    }       // 将事件绑定封装在bindEvent函数内
+    bindEvent(link1, 'click', function(e){
+        e.preventDefault()
+        console.log(1234)
+    })
+</script>
+</html>

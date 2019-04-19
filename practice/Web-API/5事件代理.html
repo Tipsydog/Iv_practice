@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+
+</head>
+<body>
+    <div id="div1">
+        <a href="http://imooc.com" id="link1">imooc.com</a>
+        <a href="http://imooc.com" id="link2">imooc.com</a>
+        <a href="http://imooc.com" id="link3">imooc.com</a>
+        <a href="http://imooc.com" id="link4">imooc.com</a>
+        <p id="p1">激活</p>
+        <p id="p2">取消</p>
+    </div>
+    <hr>
+    <div id="div2">
+        <p id="p3">激活</p>
+        <p id="p4">取消</p>
+    </div>
+</body>
+<script type="text/javascript">
+    var p1 = document.getElementById('p1')
+    var link1 = document.getElementById('link1')
+    var body = document.body
+    var div1 = document.getElementById('div1')
+
+    function bindEvent(elem, type, fn){
+        elem.addEventListener(type, fn)
+    }       // 将事件绑定封装在bindEvent函数内
+
+    bindEvent(div1, 'click', function(e){
+        e.preventDefault();
+        // console.log(e.target)       // e.target指代各个标签
+        var eTraget = e.target;
+        if(eTraget.nodeName === 'A'){
+            console.log('clicked')
+        }
+    })    
+</script>
+</html>
