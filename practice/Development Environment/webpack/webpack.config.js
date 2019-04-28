@@ -8,6 +8,9 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),     // 输出在本目录下，dist文件夹中
-        filename: 'bundle,js',                      //  输出的文件名为bundle.js
-    }
+        filename: 'bundle.js',                      //  输出的文件名为bundle.js
+    },
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin()       // 压缩打包
+    // ]
 }
